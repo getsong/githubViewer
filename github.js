@@ -24,6 +24,6 @@
     };
 
     var module = angular.module("githubViewer");
-    module.factory("github", github)
+    module.factory("github", github);
 
 })();
