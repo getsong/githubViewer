@@ -1,0 +1,11 @@
+img {
+    height: 2em;
+  }
+  
+  table,
+  tr,
+  td {
+    border: 1px black solid;
+    border-collapse: collapse;
+  }
+  
