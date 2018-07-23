@@ -1,0 +1,47 @@
+<div ng-show="user" id="user">
+    <h4>
+        User: {{ user.login }}
+        <img ng-src="{{ user.avatar_url }}" title="avatar" />
+    </h4>
+    <ul>
+        <li>Name: {{ user.name }}</li>
+        <li>About: {{ user.bio }}</li>
+        <li>Join Date: {{ user.created_at.slice(0, 10) }}</li>
+        <li>Public Repos: {{ user.public_repos }}</li>
+        <li>url:
+            <a ng-href="{{ user.html_url }}">{{ user.html_url }}</a>
+        </li>
+    </ul>
+
+    Order by:
+    <select ng-model="orderProperty">
+        <option value="name" checked>Name</option>
+        <option value="stargazers_count">Stars</option>
+        <option value="language">Language</option>
+    </select>
+    <select ng-model="orderOrder">
+        <option value="+" checked>Ascending</option>
+        <option value="-">Descending</option>
+    </select>
+    <input type="submit" value="GO!" ng-click="order()" />
+
+    <table>
+        <caption>
+            <h3>Public Repositories</h3>
+        </caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Stars</th>
+                <th>Language</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="repo in repos | orderBy:  sortOrder">
+                <td>{{ repo.name }}</td>
+                <td>{{ repo.stargazers_count | number }}</td>
+                <td>{{ repo.language }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
