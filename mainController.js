@@ -9,11 +9,12 @@
   ) {
 
     var countdownInterval = null;
-    $scope.search = function () {
+    $scope.search = function (username) {
       if (countdownInterval) {
         $interval.cancel(countdownInterval);
         $scope.countdown = null;
       }
+      $location.path("/user/" + username);
     };
 
     var decrementCountdown = function () {
